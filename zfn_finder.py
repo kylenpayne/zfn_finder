@@ -15,6 +15,7 @@ from fasta_parser import fasta_parser
 from trns import trns
 import sys, glob, os
 import pandas as pd
+import numpy as np
 
 '''
 Parses the input arguments so that the 
