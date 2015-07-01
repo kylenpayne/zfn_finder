@@ -4,22 +4,32 @@ import sys
 import re
 from Bio import SeqIO
 from Bio.Seq import Seq
-
-def trns(parsed, exprs):     
+from Bio import Restriction
+def trns(parsed, exprs):   
+    '''
+    Takes parsed fasta files and matches the exprs in the 
+    translated amino acid sequence 
+    '''  
     aa_target= []
     zfn_residue = []
+    ids = []
     for p in parsed:
         cdna = p[0].seq
-        for k in xrange(0,cdna.count(KpnI.site)):
-            cdna_target = cdna[(cdna.find(KpnI.site)+1):cdna.find(BamHI.site)]
+        '''
+        number of sites should match
+        '''
+        KpnI_sites = KpnI.search(cdna)
+        BamHI_sites = BamHI.search(cdna)
+        
+        for k in xrange(0,len()):
+            cdna_target = cdna[(KpnI_sites[k]):BamHI_sites[k]]
             aa_target.append(cdna_target.translate())
-            cdna = cdna[(cdna.find(BamHI.site) + 1):]
+        ids.append(p[0].id)
             
     # find the zfn residue using re
     for aa in aa_target:
         zfn_residue.append(re.findall(exprs, str(aa), re.I))
         
-    return zfn_residue
-
+    
 if __name__ == '__main__':
     print("This module is the translator and regex finder")
