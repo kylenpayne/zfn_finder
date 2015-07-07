@@ -78,16 +78,15 @@ def out_pretty(residues, out_file):
     take the output from the residues and prints out a file that 
     looks mad pretty
     '''
-    
+
+
 if __name__ == '__main__':
     print("""
             Zfn Finder: finds amino acid
             sequences that correspond to
             the general framework supplied as 
             either the running default in the program
-            or specified as one of the arguments
-                
-                
+            or specified as one of the arguments                
             """)
             
     import getopt
@@ -110,9 +109,8 @@ if __name__ == '__main__':
         out_pretty(residue, parsed, args["out_file"])
         
     else:
-        print("Fasta file are the only type current supported type")
+        print("Fasta file are the only type currently supported")
         sys.exit()
     
-
-         
+    
          
