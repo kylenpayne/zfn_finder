@@ -73,12 +73,14 @@ def arg_parse(argv):
      
     return ret
     
-def out_pretty(residues, out_file):
+def out_pretty(results, out_file):
     '''
     take the output from the residues and prints out a file that 
-    looks mad pretty
+    looks good
     '''
-
+    f = open(str(out_file), 'w')
+    f.write()
+    f.close() 
 
 if __name__ == '__main__':
     print("""
@@ -105,8 +107,8 @@ if __name__ == '__main__':
     if(args["file_type"] == 'fasta'):
         for file in glob.glob("*.fasta"):
             parsed.append(fasta_parser(file))
-        residue = trns(parsed, exprs)
-        out_pretty(residue, parsed, args["out_file"])
+        results = trns(parsed, exprs)
+        out_pretty(results, args["out_file"])
         
     else:
         print("Fasta file are the only type currently supported")
