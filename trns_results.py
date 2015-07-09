@@ -25,7 +25,7 @@ class trns_results:
         
         '''
         find the positions of the nucleic acids that code 
-        for the hexamers.
+        for the hexamers.3
         
         input: list of hexamers
                KpnI_sites
@@ -43,13 +43,12 @@ class trns_results:
             
             
             if(str(tmp.translate()) == h):
-                print 'zfn_finder succesfully found the start and end positions of %s' % str(h) 
-                pos['hexamer'] = h
+                print 'zfn_finder succesfully found the start and end positions of {0}'.format(str(h))
+                pos['hexamer'].append(h)
                 pos['start'].append(dna_start)
                 pos['stop'].append(dna_stop)
             else:
-                print 'zfn_finder could not find the start and end positions of %s' % str(h)
-                pos['hexamer'] = h
+                print 'zfn_finder could not find the start and end positions of {0}'.format(str(h))
                 pos['start'].append('NaN')
                 pos['stop'].append('NaN')
                 
