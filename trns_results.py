@@ -1,3 +1,4 @@
+#!/usr/bin/python
 '''
 The class header file for the trns function. Used as output from the
 trns function in the trns.py

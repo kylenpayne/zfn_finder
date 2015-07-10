@@ -5,13 +5,7 @@ import re
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.Restriction import *
-from itertools import chain
 from trns_results import trns_results
-
-'''
-stolen directly from stack overflow
-'''
-
 
 def trns(parsed, exprs):  
     '''
