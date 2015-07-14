@@ -11,7 +11,7 @@ from __future__ import print_function, division
 #from fasta_parser import fasta_parser as fp
 from fasta_parser import fasta_parser
 from trns import trns
-from helpers import arg_parse, out_pretty
+from helpers import *
 import sys, glob, os
 import pandas as pd
 import numpy as np
@@ -36,6 +36,9 @@ if __name__ == '__main__':
     import getopt
     # default regex   
 
+    argv = sys.argv
+    
+    
     args = arg_parse(argv[1:])
     os.chdir(args["in_dir"])
     
@@ -51,6 +54,7 @@ if __name__ == '__main__':
             parsed.append(fasta_parser(file))
             
         results = trns(parsed, exprs)
+        print(results)
         out_pretty(results, args["out_file"])
         
     else:
